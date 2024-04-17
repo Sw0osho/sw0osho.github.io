@@ -7,12 +7,14 @@ body, h1, table {
 
 /* Basic styling for the dashboard container */
 .dashboard-container {
-    max-width: 800px;
-    margin: 20px auto;
+    width: 80%; /* Adjust as needed */
+    margin: 50px auto; /* Center the container */
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    place-items: center;
 }
 
 /* Styling for the table */
@@ -39,4 +41,3 @@ tbody td {
 tbody tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-
