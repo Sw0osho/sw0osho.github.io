@@ -1,0 +1,75 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+header {
+    background-color: #0073e6;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+header nav button {
+    background-color: #022b69;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+header nav button:hover {
+    background-color: #0367d1;
+}
+
+/* Main Content */
+section {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
+    border-radius: 8px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Resize and Style Images */
+.image-gallery {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Space between images */
+}
+
+.image-gallery img {
+    width: 110px; /* Reduced width for smaller images */
+    height: auto;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #0073e6;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
