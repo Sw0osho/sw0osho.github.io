@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Foursquare Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+
+        .coming-soon-container {
+            margin-top: 100px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .countdown {
+            font-size: 36px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .countdown span {
+            margin: 0 10px;
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="coming-soon-container">
+        <h1>Constitution Coming Soon</h1>
+        <p>We're currently working on something awesome!<br>Stay tuned for updates.</p>
+        <div class="countdown">
+            <span id="days">0d</span>
+            <span id="hours">0h</span>
+            <span id="minutes">0m</span>
+            <span id="seconds">0s</span>
+        </div>
+    </div>
+
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("May 31, 2024 18:00:00").getTime();
+
+        // Update the countdown every 1 second
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes, and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Update the countdown display
+            document.getElementById("days").innerHTML = days + "d";
+            document.getElementById("hours").innerHTML = hours + "h";
+            document.getElementById("minutes").innerHTML = minutes + "m";
+            document.getElementById("seconds").innerHTML = seconds + "s";
+
+            // Check if the countdown is expired
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("days").innerHTML = "0d";
+                document.getElementById("hours").innerHTML = "0h";
+                document.getElementById("minutes").innerHTML = "0m";
+                document.getElementById("seconds").innerHTML = "0s";
+            }
+        }, 1000);
+
+        // Add fade-out animation
+        setTimeout(function() {
+            document.getElementById("days").classList.add("fade-out");
+            document.getElementById("hours").classList.add("fade-out");
+            document.getElementById("minutes").classList.add("fade-out");
+            document.getElementById("seconds").classList.add("fade-out");
+        }, 4500);
+    </script>
+</body>
+</html>
