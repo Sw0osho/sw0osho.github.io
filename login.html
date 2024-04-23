@@ -1,46 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Foursquare Game</title>
-    <link rel="stylesheet" href="stylelogin.css">
-    <script>
-
-        function validateCredentials(event) {
-            var usernameInput = document.getElementById('username');
-            var passwordInput = document.getElementById('password');
-            var valid = false;
-
-            if (usernameInput.value === 'Commission' && passwordInput.value === '4Square') {
-                valid = true;
-            } else if (usernameInput.value === 'Maslo' && passwordInput.value === 'IDK') {
-                valid = true;
-            }
-
-            if (!valid) {
-                alert('Incorrect username or password!');
-                event.preventDefault();  // Stop the form from submitting
-            }
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Foursquare Game</title>
+  <link rel="stylesheet" href="stylelogin.css">
 </head>
 <body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <form action="/furuluru.html" method="POST" onsubmit="validateCredentials(event)">
-            <div class="input-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" oninput="checkAndSetPassword()" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="input-group">
-                <button type="submit">Log In</button>
-            </div>
-        </form>
+  <div class="login-container">
+    <h2>Login</h2>
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
     </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+      <button onclick="validateCredentials()">Log In</button>
+    </div>
+  </div>
+  <script>
+    function validateCredentials() {
+      var usernameInput = document.getElementById('username');
+      var passwordInput = document.getElementById('password');
+
+      if ((usernameInput.value === 'Commission' && passwordInput.value === '4Square') ||
+        (usernameInput.value === 'Maslo' && passwordInput.value === 'IDK')) {
+        window.location.href = "/furuluru.html"; // Redirect to the desired page
+      } else {
+        alert('Incorrect username or password!');
+        usernameInput.value = ''; // Clear username field
+        passwordInput.value = ''; // Clear password field
+      }
+    }
+  </script>
 </body>
 </html>
