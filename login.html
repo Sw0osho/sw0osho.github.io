@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Foursquare Game</title>
   <link rel="stylesheet" href="stylelogin.css">
 </head>
+
 <body>
   <div class="login-container">
     <h2>Login</h2>
@@ -23,18 +25,56 @@
   </div>
   <script>
     function validateCredentials() {
-      var usernameInput = document.getElementById('username');
-      var passwordInput = document.getElementById('password');
+      var usernameInput = document.getElementById('username').value;
+      var passwordInput = document.getElementById('password').value;
 
-      if ((usernameInput.value === 'Commission' && passwordInput.value === '4Square') ||
-        (usernameInput.value === 'Maslo' && passwordInput.value === 'IDK')) {
-        window.location.href = "/afdsjakfdjasfkjas.html"; // Redirect to the desired page
+      // Define your list of allowed credentials
+      var allowedCredentials = [
+        {username: 'Adam', password: 'IDK', redirectUrl: 'Pass/afdsjakfdjasfkjas.html'}, //Adam Ř.
+        {username: 'Maslo', password: 'IDK', redirectUrl: 'Pass/afdsjakfdjasfkjas.html'}, //Maslo
+        {username: 'Jakub', password: 'ilovetobias', redirectUrl: 'Pass/afdsjakfdjasfkjas.html'}, //Jakub
+        {username: 'Klara', password: 'IDK', redirectUrl: 'Pass/afdsjakfdjasfkjas.html'}, //Klara K.
+        {username: 'Martin', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/MartinMadliak.html'}, //Martin M.
+        {username: 'Matej', password: 'IDK', redirectUrl: 'Pass/afdsjakfdjasfkjas.html'}, //Matej C.
+        {username: 'Kuba', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/KubaEllinger.html'}, //Kuba E.
+        {username: 'Filip', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/FilipTetzeli.html'}, //Filip T.
+        {username: 'Jirka', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/JiriJanGajdarus.html'}, //Jirzi
+        {username: 'KubaK', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/KubaKral.html'}, //Kuba K.
+        {username: 'Ben', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/BenLauren.html'}, //Ben L.
+        {username: 'Matyas', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/MatyasNepras.html'}, //Matyas N.
+        {username: 'AdamS', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/AdamSvoboda.html'}, //Adam S.
+        {username: 'Katerina', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/KaterinaPribylova.html'}, //Kacka P.
+        {username: 'Patrik', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/PatrikVratny.html'}, //Patrik
+        {username: 'Theodor', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/TheodorMargold.html'}, //Theodor M.
+        {username: 'Viktor', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/ViktorChaloupka.html'}, //Viktor Ch.
+        {username: 'Sofie', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/SofieDonatova.html'}, //Sofie D.
+        {username: 'Tobias', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/TobiasBursik.html'}, //Tobias
+        {username: 'David M.', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/DavidMaly.html'}, //David Maly
+        {username: 'Lukas', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/LukasDonner.html'}, //Lukas Donner
+        {username: 'Krystof', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/KrystofZacha.html'}, //Krystof Z.
+        {username: 'LukasK', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/LukasKlak.html'}, //Lukas Klak
+        {username: 'Dominik', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/DominikHurych.html'}, //Dominik
+        {username: 'Matyas', password: 'IDK', redirectUrl: 'Pass/NormalniLidi/MatyasBursik.html'}, //Matyas
+        // Add more users as needed
+      ];
+
+      // Check if the provided credentials match any in the allowed list
+      var matchedUser = allowedCredentials.find(function (user) {
+        return user.username === usernameInput && user.password === passwordInput;
+      });
+
+      if (matchedUser) {
+        // Redirect to the specified page for the matched user
+        window.location.href = matchedUser.redirectUrl;
       } else {
+        // Show an alert for incorrect credentials
         alert('Incorrect username or password!');
-        usernameInput.value = ''; // Clear username field
-        passwordInput.value = ''; // Clear password field
+        // Clear input fields
+        document.getElementById('username').value = '';
+        document.getElementById('password').value = '';
       }
     }
   </script>
 </body>
+
 </html>
